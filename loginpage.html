@@ -1,0 +1,70 @@
+<!--7) Create a login page using HTML and JavaScript. The login page should include two input fields for a
+username and password. When a user enters the correct username and password and clicks the "Login"
+button, a "Successfully Logged In" message should be displayed. If the username or password is
+incorrect, an "Invalid Credentials" message should be shown. Provide necessary validations on the form
+like empty field validation and minimum and maximum username and password length.-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login Page</title>
+	</head>
+	<style>
+		.body{
+			background-color:aqua;
+			margin:0px auto;
+		}
+		from input,
+		label{
+			width:250px;
+			font-size:20px;
+		}
+	</style>
+	<body>
+		<div class="main">
+			<h1 align="center">Login Form</h1>
+			<form onsubmit="return checkLogin()">
+				<tr>
+					<td><label for="username">Enter Username:</label></td>
+					<td><input type="text" id="username" required/></td>
+				</tr>
+				<tr>
+                    <td><label for="password">Enter Password:</label></td>
+                    <td><input type="password" id="password" required></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Login"></td>
+                </tr>
+            </table>
+        </form>
+
+        <div id="msg"></div>
+    </div>
+
+    <script>
+        function checkLogin() {
+            var uname = document.getElementById('username').value;
+            var pass = document.getElementById('password').value;
+            var msg = document.getElementById('msg'); 
+            var suc = document.getElementById('suc');
+
+            if(uname.length < 6 || uname.length > 10){
+                msg.innerHTML = "<h2 style='color:red;'>Username should be between 6 to 10 characters.</h2>"
+                return false;
+            }
+            if(pass.length <= 6 || pass.length >= 14){
+                msg.innerHTML = "<h2 style='color:red;'>Password should be between 6 to 14 characters.</h2>"
+                return false;
+            }
+            if(uname == "admin123" && pass == "admin123"){
+                msg.innerHTML = "<h2 style='color:green;'>Successfully Logged In</h2>"
+                return false;
+            }else{
+                msg.innerHTML = "<h2 style='color:red;'>Invalid Credentials</h2>"
+                return false;
+            }
+        }
+    </script>
+	</body>
+</html>

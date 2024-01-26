@@ -1,0 +1,69 @@
+<!--4) Write a JavaScript program that displays a student's result based on user’s input for 3 subjects. It calculates the total marks, percentage, assigns a grade, and determines if the student has passed or failed. Provide necessary validations that ensures the input for each subject is a valid number between 0 and 100. -->
+<!DOCTYPE html>	
+<html>
+	<head>
+		<title>Student result</title>
+		<style>
+		body{
+			background-color:rgb(241,255,255);
+			margin:0px 3;
+			text-align:center;
+		}
+		</style>
+	</head>
+	<body>
+		<h2>Student Result</h2>
+		<label for="sub1">Enter mark for subject 1:</label>
+		<input type="number" id="sub1"><br><br>
+		<label for="sub2">Enter mark for subject 2:</label>
+		<input type="number" id="sub2"><br><br>
+		<label for="sub3">Enter mark for subject 3:</label>
+		<input type="number" id="sub3"><br><br>
+		<button onclick="calculateResults()">Calculate</button>
+		<div id="total"></div>
+		<div id="percentage"></div>
+		<div id="grade"></div>
+		<div id="result"></div>
+	<script>
+		function calculateResults(){
+			let subject1 = parseInt(document.getElementById('sub1').value);
+			let subject2 = parseInt(document.getElementById('sub2').value);
+			let subject3 = parseInt(document.getElementById('sub3').value);
+		
+		if(subject1 < 0 || subject1 > 100 || subject2 < 0 || subject2 > 100 || subject3 < 0 || subject3 > 100){
+			alert("please enter valid marks between 0 and 100.");
+		}
+		
+		let total = subject1 + subject2 + subject3;
+		let percent =  (total / 3);
+	
+		let grade;
+		if(percent >= 90){
+			grade = 'A';
+		}
+		else if(percent >= 80){
+			grade = 'B';
+		}
+		else if(percent >= 70){
+			grade = 'C';
+		}
+		else if(percent >= 40 && percent <=69){
+			grade = 'D';
+		}
+		else{
+			grade = 'F';
+		}
+		let result;
+		if(percent >=40){
+			result = "Passed";
+		}
+		else{
+			result = "Fail";
+		}
+		document.getElementById('percentage').innerHTML="Percentage is:" + percent.toFixed(2);
+		document.getElementById('total').innerHTML="Total is:" + total;
+		document.getElementById('result').innerHTML="Result is:" + result;
+		}
+	</script>
+	</body>
+</html>

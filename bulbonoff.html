@@ -1,0 +1,33 @@
+<!--5) Write a JavaScript program that will toggle the image of the bulb from ON to OFF and vice versa when a
+mouse event handler is triggered. -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Bulb Toggle</title>
+		<style>
+			body{
+				background-color:black;
+			}
+			img{
+				margin:50px 500px;
+				width:20%;
+				cursor:pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>Click on the bulb for turn on the bulb.</h2>
+		<img id="Bulb" src="bulb_off.jpg" alt="Bulb">
+	<script>
+		let isBulboff = true;
+		let bulb = document.getElementById('Bulb');
+		bulb.addEventListener('click', toggleBulb);
+		
+		function toggleBulb(){
+		
+		isBulboff = false;
+		bulb.src = isBulboff ? "bulb_off.jpg" : "bulb_on.jpg";
+		}
+	</script>
+	</body>
+</html>

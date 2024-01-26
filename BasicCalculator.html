@@ -1,0 +1,66 @@
+<!-- 2) Write a JavaScript program to build a basic calculator that can perform arithmetic operations like
+addition, subtraction, multiplication, and division. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Basic Calculator</title>
+    <style>
+        body {
+            background-color: aqua;
+        }
+
+        form {
+            margin: 0 auto;
+            background-color: rgb(241,255,255);
+            width: 400px;
+            text-align: center;
+			border-radius:15px;
+        }
+
+        input {
+            font-size: 1.2rem;
+            margin: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+		<h2>Calculator</h2>
+        <input type="number" id="num1" placeholder="Enter any number 1"><br><br>
+        <input type="number" id="num2" placeholder="Enter any number 2"><br><br>
+        <input type="text" id="ans" value="Ans : " readonly><br><br>
+        <input type="button" value="Addition" onclick="add();"><br>
+        <input type="button" value="Subtraction" onclick="sub();"><br>
+        <input type="button" value="Multiplication" onclick="mul();"><br>
+        <input type="button" value="Division" onclick="div();"><br>
+    </form>
+
+    <script>
+        let ans = document.getElementById('ans');
+        function add() {
+            let n1 = parseFloat(document.getElementById('num1').value);
+            let n2 = parseFloat(document.getElementById('num2').value);
+            ans.value = "Addition : " + (n1 + n2);
+        }
+        function sub() {
+            let n1 = parseFloat(document.getElementById('num1').value);
+            let n2 = parseFloat(document.getElementById('num2').value);
+            ans.value = "Subtraction : " + (n1 - n2);
+        }
+        function mul() {
+            let n1 = parseFloat(document.getElementById('num1').value);
+            let n2 = parseFloat(document.getElementById('num2').value);
+            ans.value = "Multiplication : " + (n1 * n2);
+        }
+        function div() {
+            let n1 = parseFloat(document.getElementById('num1').value);
+            let n2 = parseFloat(document.getElementById('num2').value);
+            ans.value = "Division : " + (n1 / n2);
+        }
+    </script>
+</body>
+
+</html>

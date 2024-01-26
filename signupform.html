@@ -1,0 +1,108 @@
+<!--8) Write JavaScript to validate the following fields of the simple basic signup page. When a user clicks on
+the reset button, all the data provided by the user in fields will get clear.
+✓ First Name (Name should contains alphabets and the length should not be less than 6 characters).
+✓ Password (Password should not be less than 6 characters length).
+✓ E-mail id (should not contain any invalid and must follow the standard pattern)
+✓ Mobile Number (Phone number should contain 10 digits only).
+✓ Last Name and Address (should not be Empty). -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sign Up Form</title>
+    <style>
+        .body {
+            background-color: aqua;
+            margin: 0px auto;
+        }
+
+        form input,
+        label {
+            width: 250px;
+            font-size: 20px;
+        }
+        .error{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1 align="center">Sign Up Form</h1>
+        <form onsubmit="return validateForm()">
+            <table cellpadding="10">
+                <tr>
+                    <td><label for="firstname">Enter Firstname</label></td>
+                    <td><input type="text" id="firstname" /><span id="fnameerr" class="error"></span></td>
+                </tr>
+                <tr>
+                    <td><label for="lastname">Enter Lastname</label></td>
+                    <td><input type="text" id="lastname"></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Enter Password</label></td>
+                    <td><input type="password" id="password"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Enter Email</label></td>
+                    <td><input type="email" id="email"></td>
+                </tr>
+                <tr>
+                    <td><label for="mnumber">Enter Mobile Number</label></td>
+                    <td><input type="text" id="mnumber"><span id="mnerr" class="error"></span></td>
+                </tr>
+                <tr>
+                    <td><label for="address">Enter Address</label></td>
+                    <td><input type="text" id="address"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Sign Up"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="reset" value="Reset"></td>
+                </tr>
+            </table>
+            <div id="err" class="error"></div>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            var fname = document.getElementById('firstname').value;
+            var lname = document.getElementById('lastname').value;
+            var pass = document.getElementById('password').value;
+            var email = document.getElementById('email').value;
+            var mnum = document.getElementById('mnumber').value;
+            var add = document.getElementById('address').value;
+            var fnameerr = document.getElementById('fnameerr');
+            var mnerr = document.getElementById('mnerr');
+            var err = document.getElementById('err');
+
+            console.log(fname.length)
+
+            if(fname.length==0 || lname.length==0 || pass.length==0 || email.length==0 || add.length==0){
+                err.innerHTML = "<h2>All Fields are Required.</h2>"
+                return false;
+            }
+            if (fname.length < 11) {
+                err.innerHTML = "<h2>Name should contains alphabets and the length should not be less than 11 characters</h2>"
+                return false;
+            }
+            if(pass.length < 10){
+                err.innerHTML = "<h2>Password should not be less than 10 characters length.</h2>"
+                return false;
+            }
+            if(mnum.length != 10 || isNaN(mnum)){
+                err.innerHTML = "<h2>Phone number should contain 10 digits only</h2>"
+                return false;
+            }
+
+            alert("Login Successful...");
+        }
+    </script>
+</body>
+</html>
